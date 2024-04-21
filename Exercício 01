@@ -1,0 +1,38 @@
+/* Ex 01 - Faça um programa que preencha um vetor com nove números inteiros, calcule e mostre os números primos e suas respectivas posições.
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[] numeros = new int[9];
+
+        System.out.println("Digite nove números inteiros:");
+        for (int i = 0; i < numeros.length; i++) {
+            System.out.print("Número " + (i + 1) + ": ");
+            numeros[i] = scanner.nextInt();
+        }
+
+        // Exibindo os números primos e suas posições
+        System.out.println("Números primos e suas posições:");
+        for (int i = 0; i < numeros.length; i++) {
+            if (isPrimo(numeros[i])) {
+                System.out.println("Número primo: " + numeros[i] + ", posição: " + i);
+            }
+        }
+    }
+
+    // Função para verificar se um número é primo
+    public static boolean isPrimo(int num) {
+        if (num <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
